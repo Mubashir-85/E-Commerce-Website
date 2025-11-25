@@ -17,9 +17,9 @@ function Products() {
   return (
     <>
       <main>
-        <Grid container justify="center" spacing={4} className="p-10 m-10 ">
+        <Grid container justify="center" spacing={4} className="mt-32 px-5">
           {products.map((products) => (
-            <Grid size={3} spacing={5} item key={products.id} xs={12} sm={6} md={4} lg={3}>
+            <Grid item key={products.id} xs={12} sm={6} md={4} lg={3} className="">
                 <Product Product={products}/>
             </Grid>
           ))}

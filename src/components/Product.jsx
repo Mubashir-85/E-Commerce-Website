@@ -6,7 +6,7 @@ function Product({Product}) {
   return (
     <>
 
-    <Card className="justify-center items-center ">
+    <Card className="justify-center items-center">
         <CardMedia title={Product.name}/>
             <CardContent>
                 <div>
