@@ -1,7 +1,9 @@
 import React from "react";
 import { ShoppingCart } from 'lucide-react'
 
-function Product({ Product }) {
+function Product({ Product,handleCart }) {
+    console.log();
+    
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col h-full w-full max-w-xs md:max-w-sm">
       {/* Product Image */}
@@ -38,12 +40,14 @@ function Product({ Product }) {
         {/* Add to Cart Button */}
         <button
           onClick={() => {
-            console.log("Added to cart:", Product.id);
+            handleCart(Product.id, 1)
+            console.log(Product)
+            
             // Add your cart logic here
           }}
           className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 sm:py-2.5 px-3 sm:px-4 rounded-lg flex items-center justify-center gap-2 transition-colors duration-200 active:scale-95 transform"
         >
-          <ShoppingCart size={18} className="sm:w-5 sm:h-5" />
+          <ShoppingCart size={18} className="sm:w-5 sm:h-5"  />
           <span className="text-sm sm:text-base">Add to Cart</span>
         </button>
       </div>
