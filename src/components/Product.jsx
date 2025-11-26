@@ -3,13 +3,14 @@ import { ShoppingCart } from 'lucide-react'
 
 function Product({ Product }) {
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col h-full w-full max-w-sm">
+    <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col h-full w-full max-w-xs md:max-w-sm">
       {/* Product Image */}
-      <div className="relative w-full h-72 sm:h-80 md:h-96 overflow-hidden bg-gray-100">
-        <img
-          src={Product.image}
-          alt={""}
-          className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+      <div className="relative w-full h-48 sm:h-56 md:h-64 overflow-hidden bg-gray-100">
+          <img
+            src={Product?.image || 'https://via.placeholder.com/800x600?text=No+Image'}
+          alt={Product?.title || 'Product'}
+          loading="lazy"
+          className="w-full h-full object-cover object-center hover:scale-110 transition-transform duration-300"
         />
       </div>
 
@@ -47,6 +48,7 @@ function Product({ Product }) {
         </button>
       </div>
     </div>
+
   );
 }
 
