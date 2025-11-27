@@ -99,6 +99,17 @@ function Cart() {
     localStorage.setItem("cart", JSON.stringify(updatedItems));
   };
 
+  const removeItem = (productId)=>{
+    const removedItems = items.filter((item)=>{
+        if(item.id !== productId){
+            return item;
+        }
+    })
+    setItems(removedItems);
+    localStorage.setItem("cart", JSON.stringify(removedItems));
+    window.dispatchEvent(new Event("cartUpdated"));
+  }
+
   // FUNCTION 6: Handle checkout
   const checkout = () => {
     // Check: Is the cart empty?
@@ -175,6 +186,12 @@ function Cart() {
                       className="bg-gray-300 hover:bg-gray-400 text-black px-2 py-1 rounded text-sm"
                     >
                       +
+                    </button>
+
+                    <button className="bg-red-700 hover:bg-black text-white px-2 py-1 rounded text-sm"
+                    onClick={()=> removeItem(item.id)}
+                    >
+                        Remove
                     </button>
                   </div>
                 </div>

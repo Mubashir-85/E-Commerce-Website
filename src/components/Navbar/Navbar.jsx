@@ -1,10 +1,16 @@
 import {  useContext } from 'react'
 import { ShoppingCart, Menu, X } from 'lucide-react'
 import { CartContext } from '../ContextProvider/CartProvider'
+import { Link } from 'react-router-dom'
 
 
 function Navbar() {
   const {cartCount} = useContext(CartContext)
+  const hideicon =  ()=>{
+    if(cartCount===0){
+      return "hidden"
+    }
+  }
   
 
   return (
@@ -18,20 +24,20 @@ function Navbar() {
               {/* <span className="text-white font-bold text-lg sm:text-xl">E</span> */}
               <img src="shopping-cart-3d-render-icon.jpg" alt="" />
             </div>
-            <span className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900">
+            <Link  to="/" className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900">
               E-Commerce
-            </span>
+            </Link>
           </div>
 
           {/* Right - Cart Icon */}
-          <div className="flex items-center gap-4">
+          <Link to="/cart" className="flex items-center gap-4">
             <button className="relative p-2 text-gray-700 hover:text-blue-600 transition-colors duration-200">
               <ShoppingCart size={28} className="sm:w-7 sm:h-7 md:w-8 md:h-8" />
               <span className="absolute top-0 right-0 w-5 h-5 sm:w-6 sm:h-6 bg-red-500 text-white text-xs flex items-center justify-center rounded-full font-bold">
                 {cartCount}
               </span>
             </button>
-          </div>
+          </Link>
         </div>
       </div>
     </nav>

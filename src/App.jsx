@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 import Products from "./components/Products.jsx";
 import Navbar from "./components/Navbar/Navbar.jsx";
 import Cart from "./components/Cart/Cart.jsx";
 import CartProvider from "./components/ContextProvider/CartProvider.jsx";
+import { BrowserRouter, Route, Routes, Router } from "react-router-dom";
 
 function App() {
   const url = `${import.meta.env.VITE_FAKE_URL}/products`;
@@ -28,14 +27,17 @@ function App() {
   console.log();
 
   return (
-    <>
     <CartProvider>
-      <Navbar />
-      <Products products={products} />
-      <Cart />
-
+      <BrowserRouter>
+        <div>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Products products={products} />} />
+            <Route path="/cart" element={<Cart />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
     </CartProvider>
-    </>
   );
 }
 
