@@ -5,6 +5,8 @@ function Cart() {
   // items = list of products
   // setItems = function to update the list
   const [items, setItems] = useState([]);
+  
+
 
   // Step 2: Create state for messages
   const [message, setMessage] = useState("");
@@ -61,7 +63,43 @@ function Cart() {
     window.dispatchEvent(new Event("cartUpdated"));
   };
 
-  // FUNCTION 4: Handle checkout
+  // FUNCTION 4: Increase the quantity of a product by 1
+  const increaseQuantity = (productId) => {
+    // Create a new copy of items with updated quantity
+    const updatedItems = items.map((item) => {
+      if (item.id === productId) {
+        return { ...item, quantity: (item.quantity || 1) + 1 };
+      }
+      return item;
+    });
+    
+    // Update the state
+    setItems(updatedItems);
+    
+    // Save to localStorage
+    localStorage.setItem("cart", JSON.stringify(updatedItems));
+  };
+
+  // FUNCTION 5: Decrease the quantity of a product by 1
+  const decreaseQuantity = (productId) => {
+    // Create a new copy of items
+    const updatedItems = items
+      .map((item) => {
+        if (item.id === productId) {
+          // If quantity is 1, don't go below 1
+          return { ...item, quantity: Math.max(1, (item.quantity || 1) - 1) };
+        }
+        return item;
+      });
+    
+    // Update the state
+    setItems(updatedItems);
+    
+    // Save to localStorage
+    localStorage.setItem("cart", JSON.stringify(updatedItems));
+  };
+
+  // FUNCTION 6: Handle checkout
   const checkout = () => {
     // Check: Is the cart empty?
     if (items.length === 0) {
@@ -92,7 +130,6 @@ function Cart() {
       {items.length === 0 ? (
         <div className="p-6 text-center border rounded bg-white">
           <p className="text-gray-700">There are no items — buy something.</p>
-          {/* If there's a message, show it */}
           {message && <p className="mt-2 text-sm text-green-600">{message}</p>}
         </div>
       ) : (
@@ -116,8 +153,29 @@ function Cart() {
                 </div>
                 <div className="flex-1">
                   <div className="font-semibold">{item.title}</div>
-                  <div className="text-sm text-gray-500">
-                    Qty: {item.quantity || 1}
+                  
+                  {/* Quantity controls: - and + buttons */}
+                  <div className="flex items-center gap-2 mt-2">
+                    {/* Decrease button */}
+                    <button
+                      onClick={() => decreaseQuantity(item.id)}
+                      className="bg-gray-300 hover:bg-gray-400 text-black px-2 py-1 rounded text-sm"
+                    >
+                      −
+                    </button>
+                    
+                    {/* Show current quantity */}
+                    <span className="px-3 text-sm font-semibold">
+                      {item.quantity || 1}
+                    </span>
+                    
+                    {/* Increase button */}
+                    <button
+                      onClick={() => increaseQuantity(item.id)}
+                      className="bg-gray-300 hover:bg-gray-400 text-black px-2 py-1 rounded text-sm"
+                    >
+                      +
+                    </button>
                   </div>
                 </div>
 
