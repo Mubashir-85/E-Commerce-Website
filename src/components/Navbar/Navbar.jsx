@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import {  useContext } from 'react'
 import { ShoppingCart, Menu, X } from 'lucide-react'
+import { CartContext } from '../ContextProvider/CartProvider'
 
 
 function Navbar() {
-  const [isOpen, setIsOpen] = useState(false)
+  const {cartCount} = useContext(CartContext)
+  
 
   return (
     <nav className="w-full bg-white shadow-md sticky top-0 z-50">
@@ -26,7 +28,7 @@ function Navbar() {
             <button className="relative p-2 text-gray-700 hover:text-blue-600 transition-colors duration-200">
               <ShoppingCart size={28} className="sm:w-7 sm:h-7 md:w-8 md:h-8" />
               <span className="absolute top-0 right-0 w-5 h-5 sm:w-6 sm:h-6 bg-red-500 text-white text-xs flex items-center justify-center rounded-full font-bold">
-                0
+                {cartCount}
               </span>
             </button>
           </div>

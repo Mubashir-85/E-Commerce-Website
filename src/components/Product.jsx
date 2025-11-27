@@ -1,16 +1,20 @@
-import React from "react";
-import { ShoppingCart } from 'lucide-react'
+import { useContext } from "react";
+import { ShoppingCart } from "lucide-react";
+import { CartContext } from "./ContextProvider/CartProvider";
 
-function Product({ Product,handleCart }) {
-    console.log();
-    
+function Product({ Product }) {
+  const { addtocart } = useContext(CartContext);
+
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col h-full w-full max-w-xs md:max-w-sm">
       {/* Product Image */}
       <div className="relative w-full h-48 sm:h-56 md:h-64 overflow-hidden bg-gray-100">
-          <img
-            src={Product?.image || 'https://via.placeholder.com/800x600?text=No+Image'}
-          alt={Product?.title || 'Product'}
+        <img
+          src={
+            Product?.image ||
+            "https://via.placeholder.com/800x600?text=No+Image"
+          }
+          alt={Product?.title || "Product"}
           loading="lazy"
           className="w-full h-full object-cover object-center hover:scale-110 transition-transform duration-300"
         />
@@ -39,20 +43,14 @@ function Product({ Product,handleCart }) {
 
         {/* Add to Cart Button */}
         <button
-          onClick={() => {
-            handleCart(Product.id, 1)
-            console.log(Product)
-            
-            // Add your cart logic here
-          }}
+          onClick={() => addtocart(Product)}
           className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 sm:py-2.5 px-3 sm:px-4 rounded-lg flex items-center justify-center gap-2 transition-colors duration-200 active:scale-95 transform"
         >
-          <ShoppingCart size={18} className="sm:w-5 sm:h-5"  />
+          <ShoppingCart size={18} className="sm:w-5 sm:h-5" />
           <span className="text-sm sm:text-base">Add to Cart</span>
         </button>
       </div>
     </div>
-
   );
 }
 
