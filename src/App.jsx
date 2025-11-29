@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import Products from "./components/Products.jsx";
+import Products from "./components/Product/Products.jsx";
 import Navbar from "./components/Navbar/Navbar.jsx";
 import Cart from "./components/Cart/Cart.jsx";
 import CartProvider from "./components/ContextProvider/CartProvider.jsx";

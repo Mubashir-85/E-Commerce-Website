@@ -139,12 +139,12 @@ function Cart() {
       <h2 className="text-xl font-semibold mb-4">Your Cart</h2>
 
       {items.length === 0 ? (
-        <div className="p-6 text-center border rounded bg-white">
+        <div className="p-6 text-center border rounded text-3xl bg-white">
           <p className="text-gray-700">There are no items — buy something.</p>
           {message && <p className="mt-2 text-sm text-green-600">{message}</p>}
         </div>
       ) : (
-        <div className="space-y-4">
+        <div className="space-y-4 ">
           <ul>
             {items.map((item) => (
               <li
@@ -198,13 +198,11 @@ function Cart() {
 
                 <div className="text-right">
                   <div className="font-semibold text-green-600">
-                    ${(Number(item.price) || 0).toFixed(2)}
+                    ${(Number(item.price) || 0)}
                   </div>
                   <div className="text-sm text-gray-500">
                     $
-                    {((Number(item.price) || 0) * (item.quantity || 1)).toFixed(
-                      2
-                    )}
+                    {((Number(item.price) || 0) * (item.quantity || 1))}
                   </div>
                 </div>
               </li>
@@ -214,7 +212,7 @@ function Cart() {
           <div className="flex items-center justify-between p-3 bg-gray-50 rounded">
             <div className="font-semibold">Subtotal</div>
             <div className="font-bold text-lg text-green-600">
-              ${subtotal.toFixed(2)}
+              ${subtotal}
             </div>
           </div>
 
