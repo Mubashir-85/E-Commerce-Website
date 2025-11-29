@@ -1,11 +1,70 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🛒 E-Commerce Store – React + Vite
 
-Currently, two official plugins are available:
+A sleek, responsive E-Commerce web application built using React, Vite, Tailwind CSS, and the Fake Store API.
+This project demonstrates modern UI design, API integration, state management, and clean folder structure — perfect for showcasing frontend development skills.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+Features
+
+🛍️ Browse products dynamically fetched from Fake Store API
+
+🛒 Add to Cart / Remove from Cart
+
+🔄 Update product quantity
+
+💰 Auto-calculated subtotal
+
+🎯 Product categories
+
+⚡ Lightning-fast development with Vite
+
+📱 Fully responsive for mobile, tablet & desktop
+
+🎨 Modern UI using Tailwind CSS + Material UI Icons
+
+🔐 Environment variable setup for secure API URL
+
+
+
+
+🧰 Tech Stack
+Technology	Description
+React	Component-based UI
+Vite	Fast bundler & dev server
+Tailwind CSS	Utility-first styling
+Material UI / Lucide Icons	UI components & icons
+Fake Store API	Product data
+Netlify	Deployment
+
+
+
+
+
+🔗 API Used
+
+Fake Store API
+Provides product details such as title, price, category, description & image.
+https://fakestoreapi.com/
+
+
+
+
+
+🧠 What I Learned
+
+Handling API requests in React
+
+Managing global state (cart, quantity, price calculations)
+
+Designing modern UI with Tailwind
+
+Implementing responsive layouts
+
+Working with environment variables in Vite
+
+Deploying full frontend projects to Netlify
 
 ## React Compiler
 

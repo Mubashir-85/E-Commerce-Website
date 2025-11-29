@@ -25,7 +25,7 @@ function Navbar() {
               <img src="shopping-cart-3d-render-icon.jpg" alt="" />
             </div>
             <Link  to="/" className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900">
-              E-Commerce
+              Digital Mart
             </Link>
           </div>
 
